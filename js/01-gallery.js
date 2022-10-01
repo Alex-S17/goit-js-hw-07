@@ -57,3 +57,39 @@ function onEscapeClose(event) {
 }
 
 
+
+// Еще одно решение: функция onEscapeClose (закрытие модального окна по Esc и снятие слушателя клавиатуры) 
+// объявлена прямо внутри функции onPictureClick. Тогда ссылку modalWindow можно не объявлять в глобальной области видимости 
+// без инициализации, а объявить ее непосредствеено в функции onPictureClick в момент инициализации:
+
+
+// let modalWindow; - снимаем объявление ссылки modalWindow без инициализации.
+
+// galleryContainer.addEventListener('click', onPictureClick);
+
+// function onPictureClick(event) {
+//   event.preventDefault();
+  
+//   if (!event.target.classList.contains('gallery__image')) {
+//     return;
+//   }
+  
+  // Объявляем ссылку modalWindow внутри функции onPictureClick непосредствеено в момент ее инициализации:
+  // const modalWindow = basicLightbox.create(`
+  // <img src = "${event.target.dataset.source}">
+  // `);
+  // modalWindow.show();
+  // window.addEventListener('keydown', onEscapeClose);
+
+// Объявляем функцию onEscapeClose внутри функции onPictureClick:
+//   function onEscapeClose(event) {
+
+//   if (event.key !== 'Escape') {
+//     return;
+//   }
+//   modalWindow.close();
+//   window.removeEventListener('keydown', onEscapeClose); 
+//   }
+// }
+
+
