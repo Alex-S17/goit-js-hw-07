@@ -31,7 +31,7 @@ function onPictureClick(event) {
   event.preventDefault();
   
   if (!event.target.classList.contains('gallery__image')) {
-    console.log('return');
+    // console.log('return');
     return;
   }
   
