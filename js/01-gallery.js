@@ -38,7 +38,7 @@ function onPictureClick(event) {
   modalWindow = basicLightbox.create(`
   <img src = "${event.target.dataset.source}">
   `);
-  modalWindow.show();
+  modalWindow.show(onClickClose);
   window.addEventListener('keydown', onEscapeClose);
 }
 
@@ -55,6 +55,17 @@ function onEscapeClose(event) {
   // ANOTHER SOLUTION for remove keyboard Listener after the ModalWindow was closed:
   // modalWindow.close(() => window.removeEventListener('keydown', onEscapeClose));
 }
+
+function onClickClose() {
+  const backdropEl = document.querySelector('.basicLightbox');
+  backdropEl.addEventListener('click', () => modalWindow.close(() => window.removeEventListener('keydown', onEscapeClose)))
+}
+
+
+
+
+
+
 
 
 
